@@ -1,10 +1,10 @@
-package com.bilalachraf.billingservice;
+package com.example.billingYsfi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BillingServiceApplicationTests {
+class BillingApplicationTests {
 
 	@Test
 	void contextLoads() {
