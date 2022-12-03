@@ -21,5 +21,15 @@ public class Bill {
     @OneToMany(mappedBy = "bill")
     private Collection<ProductItem> productItems;
     private long customerID;
-    @Transient private Customer customer;
+    @Transient
+    private Customer customer;
+
+    public double getTotal(){
+        double somme=0;
+        for (ProductItem pi:productItems){
+            somme+=pi.getAmount();
+        }
+        return somme;
+
+    }
 }

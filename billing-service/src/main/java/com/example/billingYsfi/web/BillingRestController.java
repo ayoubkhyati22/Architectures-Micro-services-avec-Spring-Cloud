@@ -40,16 +40,12 @@ public class BillingRestController {
         System.out.println(customer.getName());
         bill.setCustomer(customer);
 
-
         bill.getProductItems().forEach(pi->{
             System.out.println("id est "+pi.getId());
             Product product=inventoryServiceClient.getProductById(pi.getProductID());
             pi.setProduct(product);
             pi.setProductName(product.getName());
         });
-
-
-
 
         return bill;
     }
