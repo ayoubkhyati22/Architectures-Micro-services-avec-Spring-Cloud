@@ -4,7 +4,7 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "http://localhost:4200"
+            allowedOrigins: "http://localhost:4200/"
             allowedHeaders: "*"
             allowedMethods:
               - GET
@@ -20,3 +20,13 @@ spring:
           uri: http://localhost:8082/
           predicates:
             - Path= /products/**
+        - id: r3
+          uri: http://localhost:8083/
+          predicates:
+            - Path= /bills/**
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+<div class="alert alert-warning container mt-3" role="alert">
+  List Of <b>Bills</b>! Of Customer : <b>{{customerID}}</b>
+ </div>
+ <div class="container">
+   <table class="table" *ngIf="bills">
+     <thead>
+       <tr>
+         <th>ID</th>
+         <th>CustomerID</th>
+         <th>Date</th>
+         <th>Action</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr *ngFor="let b of bills._embedded.bills">
+         <td>{{b.id}}</td>
+         <td>{{b.customerID}}</td>
+         <td>{{b.billingDate}}</td>
+         <td>
+          <button class="btn btn-warning" (click)="getBillDetails(b)">Bill Details</button>
+         </td>
+       </tr>
+     </tbody>
+   </table>
+ </div>

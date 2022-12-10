@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface CustomerServiceClient {
     @GetMapping("/customers/{id}?projection=fullCustomer")
     Customer getCustomerById(@PathVariable("id") Long id);
+
     @GetMapping("/customers")
     PagedModel<Customer> findAll();
 

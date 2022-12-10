@@ -9,14 +9,17 @@ import com.example.billingYsfi.model.Customer;
 import com.example.billingYsfi.model.Product;
 import com.example.billingYsfi.repository.BillRepository;
 import com.example.billingYsfi.repository.ProductItemRepository;
+import com.example.billingYsfi.service.ProductItemService;
+import org.apache.http.HttpStatus;
 import org.springframework.hateoas.PagedModel;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
+
 
 @RestController
 public class BillingRestController {
@@ -24,13 +27,19 @@ public class BillingRestController {
     private ProductItemRepository productItemRepository;
     private CustomerServiceClient customerServiceClient;
     private InventoryServiceClient inventoryServiceClient;
+    private ProductItemService productItemService;
 
-    public BillingRestController(BillRepository billRepository, ProductItemRepository productItemRepository, CustomerServiceClient customerServiceClient, InventoryServiceClient inventoryServiceClient) {
+    public BillingRestController(BillRepository billRepository, ProductItemRepository productItemRepository, CustomerServiceClient customerServiceClient, InventoryServiceClient inventoryServiceClient, ProductItemService productItemService) {
         this.billRepository = billRepository;
         this.productItemRepository = productItemRepository;
         this.customerServiceClient = customerServiceClient;
         this.inventoryServiceClient = inventoryServiceClient;
+        this.productItemService = productItemService;
+
     }
+
+
+
     @GetMapping(path="fullBill/{id}")
     public Bill getBill(@PathVariable(name="id") Long id) throws ProductItemNotFoundException {
         Bill bill =billRepository.findById(id).get();
