@@ -20,11 +20,12 @@ public class ProductItem {
     private long productID;
     private double price;
     private double quantity;
+    private String name;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne
     private Bill bill;
-    @Transient private Product product;
-    @Transient private String productName;
+   // @Transient private Product product;
+   // @Transient private String productName;
 
 
     public double getAmount(){

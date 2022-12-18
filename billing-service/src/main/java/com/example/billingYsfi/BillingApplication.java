@@ -44,6 +44,7 @@ public class BillingApplication {
 						prductPageModel.forEach(p->{
 									ProductItem productItem=new ProductItem();
 									productItem.setProductID(i.getAndIncrement());
+									productItem.setName(p.getName());
 //                         System.out.println("re  "+p.getId());
 									productItem.setPrice(p.getPrice());
 									productItem.setQuantity(1+new Random().nextInt(100));

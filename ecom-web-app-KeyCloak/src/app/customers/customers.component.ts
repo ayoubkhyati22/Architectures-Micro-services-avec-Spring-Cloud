@@ -31,7 +31,7 @@ export class CustomersComponent implements OnInit {
     });
 
     this.customerFormGroup=this.fb.group({
-      name : this.fb.control(""),
+      name  : this.fb.control(""),
       email : this.fb.control("")
 
     });

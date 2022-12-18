@@ -33,8 +33,8 @@
         </thead>
         <tbody>
           <tr *ngFor="let pi of billDetails.productItems">
-            <td>{{pi.id}}</td>
-            <td>{{pi.product.name}}</td>
+            <td><b>PROD-{{pi.id}}</b></td>
+            <td>{{pi.name}}</td>
             <td>{{pi.quantity}}</td>
             <td><h6> <b >{{pi.price}}</b></h6></td>
             <td><h6> <span class="badge bg-success">{{pi.amount}} MAD</span></h6></td>

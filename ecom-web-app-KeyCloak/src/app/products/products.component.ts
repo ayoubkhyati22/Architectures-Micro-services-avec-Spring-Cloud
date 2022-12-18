@@ -24,16 +24,19 @@ export class ProductsComponent implements OnInit {
   constructor(private http:HttpClient, private productService: ProductService, private fb: FormBuilder,) { }
 
   ngOnInit(): void {
+
+    // GET PRODUCTS
     this.http.get("http://localhost:8889/INVENTORY-SERVICE/products").subscribe({
       next: (data)=>{
         this.products=data;
       },
       error: (err)=>{}
     });
+    //END GET PRODUCTS
 
     this.productFormGroup=this.fb.group({
-      name : this.fb.control(""),
-      price : this.fb.control(""),
+      name     : this.fb.control(""),
+      price    : this.fb.control(""),
       quantity : this.fb.control("")
     });
 
@@ -41,10 +44,11 @@ export class ProductsComponent implements OnInit {
 
 
 
+  // SAVE PRODUCT
   saveProduct(){
     this.product=new Product();
-    this.product.name=this.productFormGroup.value.name;
-    this.product.price=this.productFormGroup.value.price;
+    this.product.name    =this.productFormGroup.value.name    ;
+    this.product.price   =this.productFormGroup.value.price   ;
     this.product.quantity=this.productFormGroup.value.quantity;
     this.save();
   }
@@ -66,7 +70,9 @@ export class ProductsComponent implements OnInit {
       });
     this.product = new Product();
   }
+  //END SAVE PRODUCT
 
+  // DELETE PRODUCT BY ID
   deleteProduct(id: number) {
     this.productService.deleteProduct(id)
     .subscribe({
@@ -83,5 +89,6 @@ export class ProductsComponent implements OnInit {
       }
     });
   }
+  //END DELETE PRODUCT BY ID
 
 }
