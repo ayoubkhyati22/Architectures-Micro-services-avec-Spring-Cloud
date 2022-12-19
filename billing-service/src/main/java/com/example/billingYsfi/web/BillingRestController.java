@@ -70,6 +70,7 @@ public class BillingRestController {
     @PostMapping("/addbill")
     public void add(@RequestBody BillRequest b){
         System.out.println("AddBill##########");
+        System.out.println(b);
         Bill bill=billRepository.save(new Bill(null,new Date(),null, b.getCustomerID(),null));
         for (Long id:b.getProductIDs()) {
             Product p = inventoryServiceClient.getProductById(id);
@@ -77,6 +78,7 @@ public class BillingRestController {
             productItem.setPrice(p.getPrice());
             productItem.setQuantity(1+new Random().nextInt(100));
             productItem.setBill(bill);
+            productItem.setName(p.getName());
             productItem.setProductID(p.getId());
             productItemRepository.save(productItem);
 

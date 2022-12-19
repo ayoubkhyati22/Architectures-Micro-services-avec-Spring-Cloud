@@ -31,6 +31,8 @@ public class InventoryServiceApplication {
 			productRepository.save(new Product(null,"Dell xps 13",788,12));
 			productRepository.save(new Product(null,"HP LaserJet 1010",88,129));
 			productRepository.save(new Product(null,"Iphone 14 pro",1288,112));
+			productRepository.save(new Product(null,"Mac Book Pro",9998,30));
+			productRepository.save(new Product(null,"Samsung TV 50",5000,240));
 			productRepository.findAll().forEach(p->{
 				System.out.println(p.getName());
 			});

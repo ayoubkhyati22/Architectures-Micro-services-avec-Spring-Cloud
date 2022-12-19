@@ -1,7 +1,6 @@
 export class Bill {
-  id!: number ;
+  id!:number;
   billingDate!: string;
-  productItems!: string;
-  customerId!: number;
-  customer!: string;
+  productIDs!: number[];
+  customerID!: number;
 }
