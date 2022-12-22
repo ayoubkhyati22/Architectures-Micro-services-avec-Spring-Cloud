@@ -11,6 +11,7 @@ import { BillsComponent } from './bills/bills.component';
 import { BillDetailsComponent } from './bill-details/bill-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddbillComponent } from './addbill/addbill.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { AddbillComponent } from './addbill/addbill.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,6 +7,7 @@ import Swal from 'sweetalert2'
 
 
 
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -24,7 +25,6 @@ export class ProductsComponent implements OnInit {
   constructor(private http:HttpClient, private productService: ProductService, private fb: FormBuilder,) { }
 
   ngOnInit(): void {
-
     // GET PRODUCTS
     this.http.get("http://localhost:8889/INVENTORY-SERVICE/products").subscribe({
       next: (data)=>{
@@ -80,7 +80,7 @@ export class ProductsComponent implements OnInit {
         Swal.fire(
           'Product Removed !',
           'You clicked the button!',
-          'success'
+          'error'
         )
         this.ngOnInit();
       },
