@@ -1,0 +1,56 @@
+<div class="alert alert-success container mt-3" role="alert">
+  Welcome to <b>Add Bill </b>!
+ </div>
+<div class="container" *ngIf="customers">
+
+  <form class="row g-6" [formGroup]="billFormGroup"  (ngSubmit)="saveBill()">
+    <h3><b>Add new bill </b> <img src="https://img.icons8.com/fluency/512/estimates.png" width="30px" alt=""></h3>
+    <div style="text-align: right;">
+      <button type="submit" class="btn btn-success mb-3" style="color: white;"> <b><img src="https://img.icons8.com/fluency/512/add-property.png" width="20px" alt=""> Add Bill</b>
+      </button>
+
+    </div>
+    <br><br><hr>
+    <b>Select customer <img src="https://img.icons8.com/fluency/512/search-client.png" width="20px" alt=""> </b>
+    <div class="col-auto">
+
+      <select class="form-select" aria-label="Default select example" formControlName="customerID">
+        <option selected disabled>Select customers</option>
+        <option *ngFor="let c of customers._embedded.customers" value={{c.id}}>{{c.name}}</option>
+
+      </select>
+
+    </div>
+
+    <br><br>
+    <b style="text-align: center;"><img src="https://img.icons8.com/fluency/512/shopaholic.png" width="20px" alt=""> Select products <img src="https://img.icons8.com/fluency/512/shopaholic.png" width="20px" alt=""> </b>
+    <br><br>
+    <div class="col-auto" >
+<div class="row">
+  <div class="col" *ngFor="let p of products._embedded.products">
+    <div class="card" style="width: 15rem; box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;"  >
+      <img  src="https://img.icons8.com/fluency/2x/product.png" width="100px" alt="">
+      <div class="card-body">
+        <h5 class="card-title">{{p.name}}</h5><hr>
+        <p class="card-text"><b style="color: green;">price: <img src="https://img.icons8.com/fluency/512/us-dollar-circled.png" width="20px" alt="">{{p.price}}</b>
+          &nbsp;
+          <b><img src="https://img.icons8.com/fluency/512/sell-stock.png" width="20px" alt=""> {{p.quantity}}</b>
+        </p><br>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="productIDs" formControlName="productIDs" (change)="test($event,p)"  >
+          <label class="form-check-label" for="flexSwitchCheckDefault" style="color: blue;"> Add to Cart</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    </div>
+
+
+  </form>
+
+</div>

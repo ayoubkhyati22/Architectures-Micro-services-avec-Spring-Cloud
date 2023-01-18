@@ -1,0 +1,52 @@
+<div class="alert alert-dark container mt-3" role="alert">
+  Bill Details Of Bill: <b>{{billID}}</b>
+ </div>
+<div class="container" *ngIf="billDetails">
+<div class="row">
+  <div class="col-md-6">
+    <div class="card-header"><h3>Bill Details</h3><hr></div>
+    <div class="card-header"> <h5><span class="badge bg-warning">Bill ID: {{billID}}</span></h5> </div>
+
+    <div class="card">
+    </div>
+    <div class="card-body text-sm-start">
+      <ul class="list-group">
+        <li class="list-group-item"><b>Date Bill:</b> {{billDetails.billingDate}}</li>
+        <li class="list-group-item"><b>Customer ID:</b> {{billDetails.customer.id}}</li>
+        <li class="list-group-item"><b>Customer Name:</b> {{billDetails.customer.name}}</li>
+        <li class="list-group-item"><b>Customer Email:</b> {{billDetails.customer.email}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card-header"><h3>Product Items</h3><hr></div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr class="bg-dark text-white">
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pi of billDetails.productItems">
+            <td><b>PROD-{{pi.id}}</b></td>
+            <td>{{pi.name}}</td>
+            <td>{{pi.quantity}}</td>
+            <td><h6> <b >{{pi.price}}</b></h6></td>
+            <td><h6> <span class="badge bg-success">{{pi.amount}} MAD</span></h6></td>
+
+          </tr>
+          <tr>
+            <td colspan="4" class="text-end">Total</td>
+            <td><b style="color: green;">{{billDetails.total}} MAD</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>

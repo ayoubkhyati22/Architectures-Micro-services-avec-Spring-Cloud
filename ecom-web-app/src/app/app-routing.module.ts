@@ -4,11 +4,12 @@ import { AddbillComponent } from './addbill/addbill.component';
 import { BillDetailsComponent } from './bill-details/bill-details.component';
 import { BillsComponent } from './bills/bills.component';
 import { CustomersComponent } from './customers/customers.component';
+import { AuthGuard } from './guard/security.guard';
 import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   {
-    path:"products", component : ProductsComponent
+    path:"products", component : ProductsComponent, canActivate:[AuthGuard],data:{roles:['USER']}
   },
   {
     path:"customers", component : CustomersComponent

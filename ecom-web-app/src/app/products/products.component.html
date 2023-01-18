@@ -1,0 +1,72 @@
+<div class="alert alert-primary container mt-3" role="alert">
+ Welcome to <b>Products Management</b>!
+</div>
+<div class="container">
+
+  <form class="row g-6" [formGroup]="productFormGroup"  (ngSubmit)="saveProduct()">
+    <h3><b>Add new product </b> <img src="https://img.icons8.com/fluency/512/shopaholic.png" width="30px" alt=""></h3>
+    <div class="col-auto">
+
+      <input type="text" class="form-control" id="name" name="name" placeholder="Product Name" formControlName="name" >
+    </div>
+    <div class="col-auto">
+
+      <input type="text" class="form-control" id="price" name="price" placeholder="Product Price" formControlName="price" >
+    </div>
+    <div class="col-auto">
+
+      <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Product Quantity" formControlName="quantity" >
+    </div>
+    <div class="col-auto">
+
+      <button type="submit" class="btn btn-primary mb-3"> <b><img src="https://img.icons8.com/fluency/512/add-property.png" width="20px" alt=""> Add Product</b></button>
+    </div>
+  </form>
+  <br>
+  <div class="col-auto">
+    <h3 for="inputPassword2" ><b>Search <img src="https://img.icons8.com/fluency/512/search-more.png" width="30px" alt=""></b></h3>
+    <input type="text" class="form-control" id="inputPassword2" placeholder="Search your product ...">
+  </div>
+
+  <br>
+
+    <div >
+      <table class="table shadow p-3 mb-5 bg-body rounded" *ngIf="products">
+        <thead>
+          <tr class="bg-primary text-white ">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+            <!-- <th></th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of products._embedded.products">
+            <td style="color: grey;"><img src="https://img.icons8.com/fluency/2x/key-security.png" width="20px" alt=""> PROD-{{p.id}}</td>
+            <td><img src="https://img.icons8.com/fluency/2x/product.png" width="20px" alt=""><b>{{p.name}}</b></td>
+            <td><b style="color: green;"><img src="https://img.icons8.com/fluency/512/us-dollar-circled.png" width="20px" alt="">{{p.price}}</b></td>
+            <td><b><img src="https://img.icons8.com/fluency/512/sell-stock.png" width="20px" alt=""> {{p.quantity}}</b></td>
+
+            <!-- <td>
+              <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="updateProduct(p.id)"><b style="color: orange;" >
+                <img src="https://img.icons8.com/fluency/2x/hand-with-pen.png" width="20px" alt=""> Edit</b></a>
+
+            </td> -->
+
+            <td>
+              <a type="submit" (click)="deleteProduct(p.id)"><b style="color: red;"><img src="https://img.icons8.com/fluency/512/delete-forever.png" width="20px" alt=""> Delete</b></a>
+          </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+</div>
+
+
+

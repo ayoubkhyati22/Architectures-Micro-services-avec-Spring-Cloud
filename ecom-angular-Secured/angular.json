@@ -1,18 +1,11 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "dd423765-4194-4b07-b6cf-0c001b72a9a3"
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ecom-web-app": {
+    "AngularFront": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -20,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ecom-web-app",
+            "outputPath": "dist/angular-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -30,15 +23,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-
-
+              "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
-
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -77,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ecom-web-app:build:production"
+              "browserTarget": "AngularFront:build:production"
             },
             "development": {
-              "browserTarget": "ecom-web-app:build:development"
+              "browserTarget": "AngularFront:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -88,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ecom-web-app:build"
+            "browserTarget": "AngularFront:build"
           }
         },
         "test": {
@@ -111,5 +98,7 @@
       }
     }
   },
-  "defaultProject": "ecom-web-app"
+  "cli": {
+    "analytics": "acc58882-41a8-4e8c-ad1b-569f233f2b0f"
+  }
 }

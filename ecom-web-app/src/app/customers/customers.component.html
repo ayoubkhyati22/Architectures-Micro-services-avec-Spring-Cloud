@@ -1,0 +1,61 @@
+<div class="alert alert-success container mt-3" role="alert">
+  Welcome to <b>Customers Management</b>!
+ </div>
+ <div class="container">
+
+   <form class="row g-6" [formGroup]="customerFormGroup"  (ngSubmit)="saveCustomer()">
+     <h3><b>Add new customer </b> <img src="https://img.icons8.com/fluency/512/contract-job.png" width="30px" alt=""></h3>
+     <div class="col-auto">
+
+       <input type="text" class="form-control" id="inputPassword2" placeholder="Customer Name" formControlName="name">
+     </div>
+     <div class="col-auto">
+
+       <input type="text" class="form-control" id="inputPassword2" placeholder="Customer Email" formControlName="email">
+     </div>
+
+     <div class="col-auto">
+
+       <button type="submit" class="btn btn-success mb-3"> <b><img src="https://img.icons8.com/fluency/512/add-property.png" width="20px" alt=""> Add Customer</b></button>
+     </div>
+   </form>
+   <br>
+   <div class="col-auto">
+     <h3 for="inputPassword2" ><b>Search <img src="https://img.icons8.com/fluency/512/search-more.png" width="30px" alt=""></b></h3>
+     <input type="text" class="form-control" id="inputPassword2" placeholder="Search customer ...">
+   </div>
+
+   <br>
+ <div class="container">
+   <table class="table shadow p-3 mb-5 bg-body rounded" *ngIf="customers">
+     <thead>
+       <tr class="bg-success text-white ">
+         <th>ID</th>
+         <th>Name</th>
+         <th>Email</th>
+         <th>Actions</th>
+         <th></th>
+         <th></th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr *ngFor="let c of customers._embedded.customers">
+         <td style="color: grey;"><img src="https://img.icons8.com/fluency/2x/key-security.png" width="20px" alt=""> CUST-{{c.id}}</td>
+         <td><img src="https://img.icons8.com/fluency/2x/gender-neutral-user.png" width="20px" alt=""> <b>{{c.name}}</b></td>
+         <td style="color: blue;"><img src="https://img.icons8.com/fluency/2x/secured-letter.png" width="20px" alt=""> {{c.email}}</td>
+         <td>
+          <button  class="btn btn-outline-success" (click)="getBills(c)"><img src="https://img.icons8.com/fluency/512/estimates.png" width="20px" alt=""> <b> Show Bills</b></button>
+
+         </td>
+         <td>
+          <button  class="btn btn-outline-danger" (click)="deleteCustomer(c.id)"><img src="https://img.icons8.com/fluency/512/delete-forever.png" width="20px" alt=""> <b> Delete</b></button>
+
+         </td>
+         <td>
+          <button  class="btn btn-outline-warning" ><img src="https://img.icons8.com/fluency/2x/hand-with-pen.png" width="20px" alt=""> <b> Edit</b></button>
+
+         </td>
+       </tr>
+     </tbody>
+   </table>
+ </div>
